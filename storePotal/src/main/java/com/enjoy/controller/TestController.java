@@ -34,6 +34,7 @@ public class TestController implements ApplicationContextAware{
         Object ret = null;
         for (String id:serviceIds){
             try {
+//              fxc-获取bean，输出一个ok
                 EchoService echoService = (EchoService)ctx.getBean(id);
                 ret = echoService.$echo("ok");
                 retMap.put(id,ret.toString());
@@ -58,6 +59,7 @@ public class TestController implements ApplicationContextAware{
     public String other(HttpServletRequest request, HttpServletResponse response) {
         GenericService genericService = (GenericService)ctx.getBean("otherService");
 
+//    <!-- fxc- 调用方没有接口类，直接通过泛化方式 调用-->
         Object ret = genericService.$invoke("getDetail",new String[]{"java.lang.String"},new Object[]{"name"});
         return ret.toString();
     }

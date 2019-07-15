@@ -48,6 +48,7 @@ public class OrderController {
         //若设置了async=true，方法立即返回null
         cancel_order = orderService.cancel(orderView);
         //只有async=true，才能得到此对象，否则为null
+//      fxc-异步调用 多个dubbo服务
         Future<String> cancelOrder = RpcContext.getContext().getFuture();
         cancel_pay = payService.cancelPay(orderView.getMoney());
         Future<String> cancelpay = RpcContext.getContext().getFuture();
