@@ -60,6 +60,7 @@ public class BatchFuture {
 
     private static long doFutuerBatch(String person,List<String> taskBatchs) throws ExecutionException, InterruptedException {
         List<Future<Integer>> futures = new ArrayList<>();
+//      线程池调用-异步等待返回结果，这样的方式最好！！
         for (final String task : taskBatchs) {
             //现实中，不同的银行有不同的Task实体对象-----在此暂用相同的对象
             Task bankTask = new Task(person,task);
