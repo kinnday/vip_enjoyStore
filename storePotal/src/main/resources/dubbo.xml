@@ -34,7 +34,6 @@
     <dubbo:reference  id="payService" interface="com.enjoy.service.PayService" >
         <dubbo:method name="cancelPay" async="true" />
     </dubbo:reference>
-    <!-- fxc- 调用方没有接口类，直接通过泛化方式 调用-->
     <dubbo:reference id="otherService" interface="com.enjoy.service.OtherService" generic="true" />
 
 
